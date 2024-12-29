@@ -1,7 +1,5 @@
-import { post } from "@/app/_types/post.types";
-import { Lato } from "next/font/google";
 import "./card.scss";
-import { lato, latoItalic } from "@/app/layout";
+import { Lato } from "next/font/google";
 import Link from "next/link";
 
 interface CardProps {
@@ -10,10 +8,17 @@ interface CardProps {
   body: string;
 }
 
+const lato = Lato({
+  weight: ["400", "700"],
+  style: "italic",
+  display: "swap",
+  subsets: ["latin"],
+});
+
 const Card = ({ title, body, id }: CardProps) => {
   return (
     <Link href={`post/${id}`}>
-      <div className={`${latoItalic.className} card`}>
+      <div className={`${lato.className} card`}>
         <h3 className={`${lato.className} text-center m-0`}>{title}</h3>
         <h6 className={`${lato.className} m-0`}>{body}</h6>
       </div>

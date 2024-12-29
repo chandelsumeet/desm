@@ -10,7 +10,7 @@ export const fetchPosts = async () => {
     console.log("Successful", data);
     return data;
   } catch (error) {
-    throw new Error("Posts could not be fetched");
+    throw new Error(`Posts could not be fetched${error}`);
   }
 };
 
@@ -23,7 +23,7 @@ export const fetchPost = async (id: number) => {
     console.log("Successful", data);
     return data;
   } catch (error) {
-    throw new Error(`Post with id ${id} could not be fetched`);
+    throw new Error(`Post with id ${id} could not be fetched ${error}`);
   }
 };
 
@@ -41,7 +41,7 @@ export const updatePost = async (id: number, post: post) => {
     const data = await response.json();
     console.log("Successful", data);
   } catch (error) {
-    throw new Error("Post could not be edited");
+    throw new Error(`Post could not be edited ${error}`);
   }
 };
 
@@ -59,6 +59,6 @@ export const createNewPost = async (post: createPost) => {
     console.log("Successful", data);
   } catch (error) {
     console.error(error);
-    throw new Error("Something went wong");
+    throw new Error(`Something went wrong ${error}`);
   }
 };

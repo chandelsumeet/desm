@@ -1,5 +1,6 @@
+import { InputElementProps } from "@/app/_types/component.type";
 import "./input.scss";
-const InputElement = ({ placeholder, type, ...props }: any) => {
+const InputElement = ({ placeholder, type, ...props }: InputElementProps) => {
   return (
     <input
       placeholder={placeholder}
