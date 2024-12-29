@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "./_components/navbar/navbar";
 
 export const lato = Lato({
-  weight: "400",
+  weight: ["400"],
   subsets: ["latin"],
   display: "swap",
 });
