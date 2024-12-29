@@ -12,6 +12,7 @@ export const latoItalic = Lato({
   weight: ["400", "700"],
   style: "italic",
   display: "swap",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
