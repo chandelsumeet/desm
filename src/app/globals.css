@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --background: #FEFAF6;
+  --background: #fefaf6;
   --foreground: #171717;
-  --card-border-color:#DAC0A3;
-  --card-background-color:#ffefdc;
+  --card-border-color: #dac0a3;
+  --card-background-color: #ffefdc;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,7 +15,7 @@
     --foreground: #ededed;
   }
 }
-*{
+* {
   box-sizing: border-box;
 }
 body {
