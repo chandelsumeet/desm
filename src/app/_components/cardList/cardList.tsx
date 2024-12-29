@@ -6,7 +6,7 @@ const CardList = async () => {
   const data: post[] = await fetchPosts();
   return (
     <div className="card-list">
-      {data.map(({ userId, id, title, body }: post) => (
+      {data.map(({ id, title, body }: post) => (
         <Card key={id} id={id} title={title} body={body} />
       ))}
     </div>

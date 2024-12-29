@@ -11,7 +11,9 @@ const Form = ({ postData, id }: { postData: post; id: number }) => {
   const [newPost, setNewPost] = useState<boolean>(false);
   const [formData, setFormData] = useState<post>(postData);
 
-  const handleFormData = (e: any) => {
+  const handleFormData = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData((prev: post) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -43,7 +45,7 @@ const Form = ({ postData, id }: { postData: post; id: number }) => {
                 <button
                   className="text-xl border-spacing-2 cursor-pointer flex justify-center gap-1"
                   type="button"
-                  onClick={(e) => setEditing((prev: boolean) => !prev)}
+                  onClick={() => setEditing((prev: boolean) => !prev)}
                 >
                   <MdOutlineModeEdit size={25} />
                   Edit

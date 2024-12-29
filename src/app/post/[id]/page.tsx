@@ -4,7 +4,7 @@ import Form from "@/app/_components/form/form";
 import { post } from "@/app/_types/post.types";
 import { notFound } from "next/navigation";
 
-const Post = async ({ params }: any) => {
+const Post = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
   const post: post = await fetchPost(parseInt(id));
   if (!post.id) {

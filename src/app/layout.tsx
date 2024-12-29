@@ -3,14 +3,9 @@ import { Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/navbar/navbar";
 
-export const lato = Lato({
-  weight: "400",
+const lato = Lato({
+  weight: ["400"],
   subsets: ["latin"],
-  display: "swap",
-});
-export const latoItalic = Lato({
-  weight: ["400", "700"],
-  style: "italic",
   display: "swap",
 });
 
