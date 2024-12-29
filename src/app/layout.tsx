@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/navbar/navbar";
-
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 const lato = Lato({
   weight: ["400"],
   subsets: ["latin"],
