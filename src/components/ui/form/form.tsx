@@ -28,16 +28,17 @@ const Form = ({ postData, id }: { postData: post; id: number }) => {
     setEditing(false);
     if (newPost) {
       const { message } = await createNewPost(formData);
-      return toast({
+      toast({
+        title: "Success",
+        description: message,
+      });
+    } else {
+      const { message } = await updatePost(id, formData);
+      toast({
         title: "Success",
         description: message,
       });
     }
-    const { message } = await updatePost(id, formData);
-    return toast({
-      title: "Success",
-      description: message,
-    });
   };
 
   return (
