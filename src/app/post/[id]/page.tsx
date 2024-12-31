@@ -1,6 +1,6 @@
 import { fetchPost } from "@/app/_postActions/post";
 import "./createPost.scss";
-import Form from "@/app/_components/form/form";
+import Form from "@/components/ui/form/form";
 import { post } from "@/app/_types/post.types";
 import { notFound } from "next/navigation";
 

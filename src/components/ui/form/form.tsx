@@ -25,6 +25,7 @@ const Form = ({ postData, id }: { postData: post; id: number }) => {
   };
 
   const submitPostData = async () => {
+    setEditing(false);
     if (newPost) {
       const { message } = await createNewPost(formData);
       return toast({

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
-import Navbar from "./_components/navbar/navbar";
+import Navbar from "../components/ui/navbar/navbar";
 import { Toaster } from "@/components/ui/toaster";
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";

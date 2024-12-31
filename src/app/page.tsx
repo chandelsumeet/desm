@@ -1,4 +1,4 @@
-import CardList from "./_components/cardList/cardList";
+import CardList from "../components/ui/cardList/cardList";
 
 export default async function Home() {
   return (
