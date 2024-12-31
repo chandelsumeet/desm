@@ -5,7 +5,7 @@ import { createPost, post } from "../_types/post.types";
 export const fetchPosts = async () => {
   try {
     const url: string = process.env.NEXT_PUBLIC_POSTS_API_ENDPOINT || "";
-    const response: Response = await fetch(url);
+    const response: Response = await fetch(url, { cache: "force-cache" });
     const data: post[] = await response.json();
     console.log("Successful", data);
     return data;
@@ -18,7 +18,7 @@ export const fetchPost = async (id: number) => {
   try {
     const url: string =
       `${process.env.NEXT_PUBLIC_POSTS_API_ENDPOINT}/${id}` || "";
-    const response: Response = await fetch(url);
+    const response: Response = await fetch(url, { cache: "force-cache" });
     const data: post = await response.json();
     console.log("Successful", data);
     return data;
