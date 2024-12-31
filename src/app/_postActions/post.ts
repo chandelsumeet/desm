@@ -5,7 +5,7 @@ import { createPost, post } from "../_types/post.types";
 export const fetchPosts = async () => {
   try {
     const url: string = process.env.NEXT_PUBLIC_POSTS_API_ENDPOINT || "";
-    const response: Response = await fetch(url);
+    const response: Response = await fetch(url, { cache: "force-cache" });
     const data: post[] = await response.json();
     console.log("Successful", data);
     return data;
@@ -18,7 +18,7 @@ export const fetchPost = async (id: number) => {
   try {
     const url: string =
       `${process.env.NEXT_PUBLIC_POSTS_API_ENDPOINT}/${id}` || "";
-    const response: Response = await fetch(url);
+    const response: Response = await fetch(url, { cache: "force-cache" });
     const data: post = await response.json();
     console.log("Successful", data);
     return data;
@@ -40,6 +40,10 @@ export const updatePost = async (id: number, post: post) => {
     });
     const data = await response.json();
     console.log("Successful", data);
+    return {
+      data,
+      message: `post updated with post id ${data.id}`,
+    };
   } catch (error) {
     throw new Error(`Post could not be edited ${error}`);
   }
@@ -57,6 +61,10 @@ export const createNewPost = async (post: createPost) => {
     });
     const data: post = await response.json();
     console.log("Successful", data);
+    return {
+      data,
+      message: `new post created with post id:${data.id}`,
+    };
   } catch (error) {
     console.error(error);
     throw new Error(`Something went wrong ${error}`);

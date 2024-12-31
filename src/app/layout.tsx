@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
-import Navbar from "./_components/navbar/navbar";
+import Navbar from "../components/ui/navbar/navbar";
+import { Toaster } from "@/components/ui/toaster";
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 const lato = Lato({
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="en m-0 p-0">
       <body className={`${lato.className}  antialiased  pt-0 m-0`}>
         <Navbar />
+        <Toaster />
         {children}
       </body>
     </html>
