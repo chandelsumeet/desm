@@ -40,6 +40,10 @@ export const updatePost = async (id: number, post: post) => {
     });
     const data = await response.json();
     console.log("Successful", data);
+    return {
+      data,
+      message: `post updated with post id ${data.id}`,
+    };
   } catch (error) {
     throw new Error(`Post could not be edited ${error}`);
   }
@@ -57,6 +61,10 @@ export const createNewPost = async (post: createPost) => {
     });
     const data: post = await response.json();
     console.log("Successful", data);
+    return {
+      data,
+      message: `new post created with post id:${data.id}`,
+    };
   } catch (error) {
     console.error(error);
     throw new Error(`Something went wrong ${error}`);

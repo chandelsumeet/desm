@@ -6,6 +6,7 @@ import { post } from "@/app/_types/post.types";
 import { IoMdAdd } from "react-icons/io";
 import { Suspense, useState } from "react";
 import { createNewPost, updatePost } from "@/app/_postActions/post";
+import { toast } from "@/hooks/use-toast";
 const Form = ({ postData, id }: { postData: post; id: number }) => {
   const [editing, setEditing] = useState<boolean>(false);
   const [newPost, setNewPost] = useState<boolean>(false);
@@ -23,9 +24,20 @@ const Form = ({ postData, id }: { postData: post; id: number }) => {
     setEditing(true);
   };
 
-  const submitPostData = newPost
-    ? createNewPost.bind(null, { title: formData.title, body: formData.body })
-    : updatePost.bind(null, id, formData);
+  const submitPostData = async () => {
+    if (newPost) {
+      const { message } = await createNewPost(formData);
+      return toast({
+        title: "Success",
+        description: message,
+      });
+    }
+    const { message } = await updatePost(id, formData);
+    return toast({
+      title: "Success",
+      description: message,
+    });
+  };
 
   return (
     <>

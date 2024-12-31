@@ -4,7 +4,7 @@ import Form from "@/app/_components/form/form";
 import { post } from "@/app/_types/post.types";
 import { notFound } from "next/navigation";
 
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 
 type Props = {
   params: Promise<{ id: string }>;
